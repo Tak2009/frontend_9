@@ -1,0 +1,35 @@
+
+h2 {
+    font-size: 40px ;
+}
+
+h3 {
+    font-size: 25px ;
+    text-align: left;
+}
+
+.row1 {
+    background: orange;
+}
+
+.row2 {
+    background: red;
+    color: white;
+}
+
+.button {
+    position: relative;
+    top: -3px;
+    left: 10px;
+  }
+
+#portfolio_list {
+    font-size: 40px;
+    min-height: 200px;
+    width: auto;
+    background: #f0eded;
+    display: inline-block;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(auto-fill, auto);
+    grid-row-gap: 10px;
+}
