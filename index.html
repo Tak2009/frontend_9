@@ -8,8 +8,16 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
   </head>
 <body>
-  <div id="root"></div>
-　<h1>Test</h1>
+  
+  
+  <form id="form">
+  <label>Select:<select id="3-options"></label>
+      <option value="both">Both Living in London And Within 50 mi of London</option>
+      <option value="london">Living in London</option>
+      <option value="within-50">Living Within 50 mi of London</option>
+  </select>
+  <input type="button" value="Check" onclick="clickBtn()"/>
+ <div id="list"></div>
 
 <script type="text/javascript" src='src/api.js' defer></script>
  <script type="text/javascript" src='src/index.js' defer></script>

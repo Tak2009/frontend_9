@@ -5,18 +5,27 @@ const form = document.querySelector("#form")
 let listAll = []
 let list50 = []
 let listLondon = []
-let selectedOption = "all"
+let selectedOption = "london"
 
-/////////change the option\\\\\\\\\\\\\\\\\\
 const clickBtn = () => {
+  // debugger
   selectedOption = document.getElementById("3-options").value
   passRightList(selectedOption)
+  // if (selectedOption == "london"){
+  //   console.log("london")
+  // } else　if (selectedOption === "within-50") {
+  //   console.log("within-50")
+  // } else {
+  //   console.log("all")
+  // }
 }  
 
-/////////get all users from londonusers table\\\\\\\\\\\\\\\\\\
-API.getLondonUsers().then(londonUsers => addLondonUsersToList(londonUsers))
 
-/////////add all users from londonusers table to the appropriate lists\\\\\\\\\\\\\\\\\\
+/////////get from londonusers table\\\\\\\\\\\\\\\\\\
+API.getLondonUsers().then(londonUsers => addLondonUsersToList(londonUsers))
+console.log("check1")
+
+/////////push all the users in londonusers table to the list\\\\\\\\\\\\\\\\\\
 const addLondonUsersToList = (londonUsers) => {
   londonUsers.forEach(londonUser => {
   listAll.push(londonUser)
@@ -26,8 +35,9 @@ const addLondonUsersToList = (londonUsers) => {
 
 /////////get all users from users table\\\\\\\\\\\\\\\\\\
 API.getAllUsers().then(users => selectUsers(users))
+console.log("check2")
 
-///////select the users whose coordinates are wihtin 50 miles of London and add them to the appropriate lists\\\\\\\\\\\\
+///////select users whose coordinates are wihtin 50 miles of London and add them to the list\\\\\\\\\\\\
 const selectUsers = (users,location = "London") => { 
   users.forEach(user => {
   const {latitude, longitude} = user
@@ -40,12 +50,11 @@ const selectUsers = (users,location = "London") => {
       null
     }
   })
+  // renderUsersInList(selectedOption)
   passRightList(selectedOption)
 }
 
-/////////select a right list based on the option selected and pass it to the render function\\\\\\\\\\\\
 const passRightList = (selectedOption) => {
-  root.innerHTML = ""
   if (selectedOption == "london"){
     console.log("london")
     listLondon.forEach(user => renderUser(user))
@@ -58,9 +67,10 @@ const passRightList = (selectedOption) => {
   }
 }
 
-/////////render user\\\\\\\\\\\\
+
 const renderUser = (user) => {
-    const {user_id, first_name, last_name, email, latitude, longitude} = user
+    root.innerHTML = ""
+    const {user_id, first_name, last_name, email, latitude, longitude} = selectedU
     const div = document.createElement("div")
     div.id = user_id
     const h3 = document.createElement("h3")
@@ -74,6 +84,26 @@ const renderUser = (user) => {
     div.append(h3,ul)
     root.appendChild(div)
   }
+
+/////////render users in London and users within 50 mi of London \\\\\\\\\\\\
+// const renderUsersInList = (selectedOption) => {
+//   root.innerHTML = ""
+//   listAll.forEach(selectedU => {
+//   const {user_id, first_name, last_name, email, latitude, longitude} = selectedU
+//   const div = document.createElement("div")
+//   div.id = user_id
+//   const h3 = document.createElement("h3")
+//   h3.innerText = `Name: ${first_name} ${last_name}`
+//   const ul = document.createElement("ul")
+//   const li = document.createElement("li")
+//   li.innerText = `Email Address: ${email}`
+//   const li2 = document.createElement("li")
+//   li2.innerText = `Lat:${latitude}, Long:${longitude}`
+//   ul.append(li,li2)  
+//   div.append(h3,ul)
+//   root.appendChild(div)
+//   })
+// }
 
 /////////calculate distance\\\\\\\\\\\\
 const calcDistance = (originLat, originLong, latitude, longitude) => {
