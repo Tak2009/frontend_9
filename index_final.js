@@ -5,7 +5,7 @@ const form = document.querySelector("#form")
 let listAll = []
 let list50 = []
 let listLondon = []
-let selectedOption = "all"
+let selectedOption = "both"
 
 /////////change the option\\\\\\\\\\\\\\\\\\
 const clickBtn = () => {
@@ -53,7 +53,7 @@ const passRightList = (selectedOption) => {
     console.log("within-50")
     list50.forEach(user => renderUser(user))
   } else {
-    console.log("all")
+    console.log("both")
     listAll.forEach(user => renderUser(user))
   }
 }

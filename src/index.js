@@ -5,7 +5,7 @@ const form = document.querySelector("#form")
 let listAll = []
 let list50 = []
 let listLondon = []
-let selectedOption = "all"
+let selectedOption = "both"
 
 /////////change the option\\\\\\\\\\\\\\\\\\
 const clickBtn = () => {
@@ -46,16 +46,28 @@ const selectUsers = (users,location = "London") => {
 /////////select a right list based on the option selected and pass it to the render function\\\\\\\\\\\\
 const passRightList = (selectedOption) => {
   root.innerHTML = ""
+  
   if (selectedOption == "london"){
     console.log("london")
-    listLondon.forEach(user => renderUser(user))
+    addTotal(listLondon)
+    listLondon.forEach(user => renderUser(user,listLondon))
   } else　if (selectedOption === "within-50") {
     console.log("within-50")
-    list50.forEach(user => renderUser(user))
+    addTotal(list50)
+    list50.forEach(user => renderUser(user, list50))
   } else {
-    console.log("all")
-    listAll.forEach(user => renderUser(user))
+    console.log("both")
+    addTotal(listAll)
+    listAll.forEach((user) => renderUser(user, listAll))
   }
+
+}
+
+/////////add the total \\\\\\\\\\\\\
+const addTotal = (list) => {
+  const h2 = document.createElement("h2")
+    h2.innerText = `${list.length} People in Total`
+    root.appendChild(h2)
 }
 
 /////////render user\\\\\\\\\\\\
