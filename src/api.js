@@ -1,5 +1,5 @@
 
-const LONDON_USERS_URL = "http://localhost:3000/londonusers";
+const LONDON_USERS_URL = "http://localhost:3000/london_users";
 const ALL_USERS_URL = "http://localhost:3000/users"
 
 
