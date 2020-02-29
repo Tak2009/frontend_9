@@ -12,10 +12,10 @@ Using the language of your choice please
 
 ## Brief Explanation
 
-This is an addtional project. In this project, I built a backend-frontend application.
+This is an addtional project to demopnstrate my skills to achive the same objectives. In this project, I built a backend-frontend application.
 For the backend, I used again Ruby on Rails. For the frontend, I used JavaScript.
-In this additional project, the frontend handles all the process to return ii - a) and ii -b). My backend just stores the data https://bpdts-test-app.herokuapp.com/ and hence it's just a "pass-through"
-API for my frontend.
+In this additional project, the frontend handles all the process to return ii - a) and ii -b). My backend just stores the data available
+at https://bpdts-test-app.herokuapp.com/ and hence it's just a "pass-through" API for my frontend.
 
 My frontend: https://github.com/Tak2009/frontend_9
 My backend: https://github.com/Tak2009/backend_9
