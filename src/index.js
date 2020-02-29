@@ -89,9 +89,9 @@ const renderUser = (user) => {
 
 /////////calculate distance\\\\\\\\\\\\
 const calcDistance = (originLat, originLong, latitude, longitude) => {
-  originLat *= Math.PI/180
-  originLong *= Math.PI/180
-  latitude *= Math.PI/180
-  longitude *= Math.PI/180
-  return  (6371*0.62137*Math.acos(Math.cos(originLat)*Math.cos(latitude)*Math.cos(longitude-originLong)+Math.sin(originLat)*Math.sin(latitude)))
+  originLat *= Math.PI / 180
+  originLong *= Math.PI / 180
+  latitude *= Math.PI / 180
+  longitude *= Math.PI / 180
+  return  (6371*0.62137 * Math.acos(Math.cos(originLat) * Math.cos(latitude) * Math.cos(longitude - originLong) + Math.sin(originLat) * Math.sin(latitude)))
 }
